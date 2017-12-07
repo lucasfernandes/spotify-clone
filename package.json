@@ -1,0 +1,42 @@
+{
+	"name": "spotify",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"test": "jest"
+	},
+	"dependencies": {
+		"apisauce": "^0.14.1",
+		"prop-types": "^15.5.10",
+		"react": "16.0.0-alpha.12",
+		"react-native": "0.48.4",
+		"react-native-vector-icons": "^4.4.2",
+		"react-navigation": "^1.0.0-beta.21",
+		"react-redux": "^5.0.6",
+		"reactotron-react-native": "^1.13.2",
+		"reactotron-redux": "^1.12.2",
+		"reactotron-redux-saga": "^1.12.2",
+		"redux": "^3.7.2",
+		"redux-saga": "^0.16.0",
+		"reduxsauce": "^0.7.0"
+	},
+	"devDependencies": {
+		"babel-eslint": "^7.2.3",
+		"babel-jest": "21.2.0",
+		"babel-plugin-module-resolver": "^3.0.0",
+		"babel-preset-react-native": "4.0.0",
+		"eslint": "^4.9.0",
+		"eslint-config-airbnb": "^15.1.0",
+		"eslint-import-resolver-babel-module": "^4.0.0-beta.3",
+		"eslint-plugin-import": "^2.7.0",
+		"eslint-plugin-jsx-a11y": "^6.0.2",
+		"eslint-plugin-react": "^7.4.0",
+		"eslint-plugin-react-native": "^3.0.1",
+		"jest": "21.2.1",
+		"react-test-renderer": "16.0.0-alpha.12"
+	},
+	"jest": {
+		"preset": "react-native"
+	}
+}
