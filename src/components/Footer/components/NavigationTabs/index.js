@@ -9,8 +9,8 @@ import TabItem from './components/TabItem';
 import styles from './styles';
 
 const tabs = [
-  { index: 0, title: 'Em alta', icon: 'chart' },
-  { index: 1, title: 'Busca', icon: 'search' },
+  { index: 0, title: 'Início', icon: 'home' },
+  { index: 1, title: 'Buscar', icon: 'search' },
 ];
 
 const NavigationTabs = ({ navigationState, jumpToIndex }) => (

@@ -4,11 +4,15 @@ import PropTypes from 'prop-types';
 
 /* Presentational */
 import { View, Text, ActivityIndicator, FlatList } from 'react-native';
-import SongItem from './components/SongItem';
+import SongItem from 'components/SongList/components/SongItem';
+
+/* Redux */
+import { connect } from 'react-redux';
+import PlayerActions from 'store/ducks/player';
 
 import styles from './styles';
 
-export default class SongList extends Component {
+export class SongList extends Component {
   static propTypes = {
     title: PropTypes.string,
     songs: PropTypes.arrayOf(
@@ -16,6 +20,7 @@ export default class SongList extends Component {
     ),
     loading: PropTypes.bool,
     showTitle: PropTypes.bool,
+    playerSetSongRequest: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
@@ -31,6 +36,7 @@ export default class SongList extends Component {
 
   renderList = () => (
     <FlatList
+      keyboardShouldPersistTaps="always"
       data={this.props.songs}
       keyExtractor={song => song.id}
       renderItem={this.renderSong}
@@ -43,7 +49,7 @@ export default class SongList extends Component {
         styles.listItem,
         (index === 0) ? styles.listItemFirst : {},
       ]}
-      onPress={() => {}}
+      onPress={() => { this.props.playerSetSongRequest(item, this.props.songs); }}
       song={item}
     />
   )
@@ -56,7 +62,7 @@ export default class SongList extends Component {
 
   render() {
     return (
-      <View style={styles.section}>
+      <View style={styles.section} >
         { this.props.showTitle &&
           <Text style={[styles.sectionTitle, styles.listSectionTitle]}>
             { this.props.title }
@@ -69,3 +75,10 @@ export default class SongList extends Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  playerSetSongRequest: (song, list) =>
+    dispatch(PlayerActions.playerSetSongRequest(song, list)),
+});
+
+export default connect(null, mapDispatchToProps)(SongList);

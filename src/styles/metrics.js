@@ -8,8 +8,8 @@ export default {
   baseMargin: 20,
   screenWidth: width < height ? width : height,
   screenHeight: width < height ? height : width,
-  tabBarHeight: 54,
-  navBarHeight: 54,
+  tabBarHeight: 48,
+  navBarHeight: 44,
   statusBarHeight: (Platform.OS === 'ios') ? 20 : 0,
   baseRadius: 10,
 };

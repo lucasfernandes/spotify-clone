@@ -4,17 +4,29 @@ import React from 'react';
 
 /* Presentational */
 import { View } from 'react-native';
-import NavigationTabs from './components/NavigationTabs';
-import Player from './components/Player';
+import NavigationTabs from 'components/Footer/components/NavigationTabs';
+import PlayerComponent, { Player } from 'components/Footer/components/Player';
 
-import styles from './styles';
-
+/* Redux */
+import { connect } from 'react-redux';
 
 const Footer = props => (
-  <View style={styles.footerContainer}>
-    <Player />
+  <View>
+    { props.player.song && <PlayerComponent /> }
     <NavigationTabs {...props} />
   </View>
 );
 
-export default Footer;
+Footer.propTypes = {
+  player: Player.propTypes.player,
+};
+
+Footer.defaultProps = {
+  player: {},
+};
+
+const mapStateToProps = state => ({
+  player: state.player,
+});
+
+export default connect(mapStateToProps)(Footer);

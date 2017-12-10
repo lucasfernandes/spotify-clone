@@ -5,12 +5,12 @@ const styles = StyleSheet.create({
   player: {
     alignSelf: 'stretch',
     borderTopWidth: 2,
-    borderColor: colors.dark,
+    borderColor: colors.middark,
   },
 
   content: {
-    height: 42,
-    backgroundColor: colors.darker,
+    height: 44,
+    backgroundColor: colors.afternoon,
     borderBottomWidth: 1,
     borderColor: colors.background,
     flexDirection: 'row',

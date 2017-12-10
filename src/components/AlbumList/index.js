@@ -27,6 +27,7 @@ export default class AlbumList extends Component {
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
+      keyboardShouldPersistTaps="always"
     >
       { this.props.albums.map((album, index) => (
         <AlbumItemComponent

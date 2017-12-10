@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 /* Presentational */
 import { View, Text, ScrollView, ImageBackground } from 'react-native';
 import Header from 'components/Header';
-import SongList from 'components/SongList';
+import SongListComponent from 'components/SongList';
 import { AlbumItem } from 'components/AlbumList/components/AlbumItem';
 
 import styles from './styles';
@@ -15,10 +15,11 @@ const Album = (props) => {
 
   return (
     <View style={styles.container}>
-      <Header title="Álbum" backEnabled  />
+      <Header title="Álbum" backEnabled />
       <ScrollView
         style={styles.container}
         showsHorizontalScrollIndicator={false}
+        keyboardShouldPersistTaps="always"
       >
         <ImageBackground
           style={styles.background}
@@ -31,7 +32,7 @@ const Album = (props) => {
           </View>
         </ImageBackground>
 
-        <SongList
+        <SongListComponent
           title="Músicas do Álbum"
           songs={album.songs}
         />

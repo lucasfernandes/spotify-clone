@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 /* Presentational */
 import { View, ScrollView } from 'react-native';
 import Header from 'components/Header';
-import SongList from 'components/SongList';
+import SongListComponent, { SongList } from 'components/SongList';
 import AlbumList from 'components/AlbumList';
 
 /* Redux */
@@ -39,13 +39,14 @@ class Trending extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header title="Em alta" />
+        <Header title="INÍCIO" />
 
         <ScrollView
           style={styles.container}
           showVerticalScrollIndicator={false}
+          keyboardShouldPersistTaps="always"
         >
-          <SongList
+          <SongListComponent
             title="Músicas em alta"
             songs={this.props.trendingSongs.data}
             loading={this.props.trendingSongs.loading}

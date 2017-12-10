@@ -8,7 +8,8 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: fonts.smaller,
+    fontSize: fonts.tiny,
+    fontWeight: 'bold',
   },
 
   activeTitle: {
