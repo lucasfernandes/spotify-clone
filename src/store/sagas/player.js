@@ -1,4 +1,4 @@
-import { cps, put } from 'redux-saga/effects';
+import { cps, put, call, select } from 'redux-saga/effects';
 import { NativeModules } from 'react-native';
 
 import ActionCreators from 'store/ducks/player';
@@ -16,8 +16,27 @@ export function* setSong(action) {
   }
 }
 
+export function* playNext() {
+  const { song, list } = yield select(state => state.player);
+  const nextSongIndex = list.findIndex(listSong => listSong.id === song.id) + 1;
+
+  if ((list.length - 1) >= nextSongIndex) {
+    yield put(ActionCreators.playerSetSongRequest(list[nextSongIndex], list));
+  } else {
+    yield put(ActionCreators.playerPause());
+  }
+}
+
 export function* play() {
-  yield cps(RNSound.play, 0);
+  try {
+    yield cps(RNSound.play, 0);
+  } catch (e) {
+    if (e === true) {
+      yield call(playNext);
+    } else {
+      console.tron.log(e);
+    }
+  }
 }
 
 export function* pause() {
